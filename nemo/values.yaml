@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image:
+  repository: quay.io/swapnilshekade/rydercup-guardrails
+  tag: new1
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 8007
+  targetPort: 8000
+
+resources:
+  requests:
+    memory: "250Mi"
+    cpu: "250m"
+  limits:
+    memory: "1Gi"
+    cpu: "1"
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 60

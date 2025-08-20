@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "RydercupVA-chatbot.fullname" . }}
+  labels:
+    app: {{ include "RydercupVA-chatbot.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "RydercupVA-chatbot.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "RydercupVA-chatbot.name" . }}
+    spec:
+      containers:
+        - name: RydercupVA-chatbot
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.resources.limits.memory }}
+              cpu: {{ .Values.resources.limits.cpu }}
+          volumeMounts:
+            - name: chromadb-store-storage
+              mountPath: {{ .Values.volumeMountPath }}
+      volumes:
+        - name: chromadb-store-storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.pvcName }}

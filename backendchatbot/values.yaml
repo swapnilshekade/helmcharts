@@ -1,0 +1,34 @@
+replicaCount: 1
+
+image:
+  repository: quay.io/swapnilshekade/genai_assistant
+  tag: new15
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 8006
+  targetPort: 8001
+
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "500m"
+  limits:
+    memory: "2Gi"
+    cpu: "1"
+
+pvc:
+  storageClassName: azurefile
+  accessModes:
+    - ReadWriteMany
+  size: 5Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 60
+
+volumeMountPath: /chromadb_store
+pvcName: chromadb-store-pvc

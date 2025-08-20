@@ -1,0 +1,6 @@
+apiVersion: v2
+name: RydercupVA
+description: A Helm chart for RydercupVA React UI application
+type: application
+version: 0.1.0
+appVersion: "new12"

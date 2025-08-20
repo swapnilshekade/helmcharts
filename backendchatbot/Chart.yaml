@@ -1,0 +1,6 @@
+apiVersion: v2
+name: RydercupVA-chatbot
+description: A Helm chart for RydercupVA chatbot application
+type: application
+version: 0.1.0
+appVersion: "new15"
