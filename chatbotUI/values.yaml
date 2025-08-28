@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 3000
 
 resources:
@@ -22,3 +22,15 @@ autoscaling:
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 60
+
+
+# Istio configs
+istio:
+  enabled: true
+  gateway:
+    name: ezaf-gateway
+    namespace: istio-system
+  hosts:
+    - "ui.${DOMAIN_NAME}"
+  tls:
+    selfSigned: true

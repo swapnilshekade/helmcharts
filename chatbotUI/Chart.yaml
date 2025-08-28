@@ -1,5 +1,5 @@
 apiVersion: v2
-name: rydercupva
+name: rydercupvaui
 description: A Helm chart for rydercupva React UI application
 type: application
 version: 0.1.0
