@@ -2,12 +2,12 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "RydercupVA-apiservice.fullname" . }}-hpa
+  name: {{ include "rydercupva-apiservice.fullname" . }}-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "RydercupVA-apiservice.fullname" . }}
+    name: {{ include "rydercupva-apiservice.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

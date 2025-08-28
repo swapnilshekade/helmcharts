@@ -1,7 +1,7 @@
-{{- define "RydercupVA-apiservice.name" -}}
-RydercupVA-apiservice
+{{- define "rydercupva-apiservice.name" -}}
+rydercupva-apiservice
 {{- end }}
 
-{{- define "RydercupVA-apiservice.fullname" -}}
-{{ include "RydercupVA-apiservice.name" . }}
+{{- define "rydercupva-apiservice.fullname" -}}
+{{ include "rydercupva-apiservice.name" . }}
 {{- end }}

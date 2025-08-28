@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "RydercupVA.fullname" . }}
+  name: {{ include "rydercupva.fullname" . }}
   labels:
-    app: {{ include "RydercupVA.name" . }}
+    app: {{ include "rydercupva.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "RydercupVA.name" . }}
+      app: {{ include "rydercupva.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "RydercupVA.name" . }}
+        app: {{ include "rydercupva.name" . }}
     spec:
       containers:
-        - name: RydercupVA
+        - name: rydercupva
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

@@ -1,6 +1,6 @@
 apiVersion: v2
-name: RydercupVA-guardrails
-description: Helm chart for RydercupVA Nemo Guardrails service
+name: rydercupva-guardrails
+description: Helm chart for rydercupva Nemo Guardrails service
 type: application
 version: 0.1.0
 appVersion: "new1"

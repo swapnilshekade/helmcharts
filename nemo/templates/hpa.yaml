@@ -2,12 +2,12 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "RydercupVA-guardrails.fullname" . }}-hpa
+  name: {{ include "rydercupva-guardrails.fullname" . }}-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "RydercupVA-guardrails.fullname" . }}
+    name: {{ include "rydercupva-guardrails.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

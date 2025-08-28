@@ -2,13 +2,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "RydercupVA-ccc-ui.fullname" . }}-hpa
+  name: {{ include "rydercupva-ccc-ui.fullname" . }}-hpa
   namespace: {{ .Values.namespace }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "RydercupVA-ccc-ui.fullname" . }}
+    name: {{ include "rydercupva-ccc-ui.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

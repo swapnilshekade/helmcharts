@@ -1,7 +1,7 @@
-{{- define "RydercupVA-chatbot.name" -}}
-RydercupVA-chatbot
+{{- define "rydercupva-chatbot.name" -}}
+rydercupva-chatbot
 {{- end }}
 
-{{- define "RydercupVA-chatbot.fullname" -}}
-{{ include "RydercupVA-chatbot.name" . }}
+{{- define "rydercupva-chatbot.fullname" -}}
+{{ include "rydercupva-chatbot.name" . }}
 {{- end }}

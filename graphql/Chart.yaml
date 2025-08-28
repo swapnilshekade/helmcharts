@@ -1,6 +1,6 @@
 apiVersion: v2
-name: RydercupVA-graphql
-description: Helm chart for RydercupVA GraphQL Server
+name: rydercupva-graphql
+description: Helm chart for rydercupva GraphQL Server
 type: application
-version: 0.1.0
-appVersion: "new7"
+version: 0.1.4
+appVersion: "1"

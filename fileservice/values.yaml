@@ -1,27 +1,27 @@
-replicaCount: 2
+replicaCount: 1
 
 image:
-  repository: quay.io/swapnilshekade/rydercup-graphql
-  tag: pcai-v1
+  repository: quay.io/swapnilshekade/genai_fileservice
+  tag: preprod-v2
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP  
-  port: 4000
-  targetPort: 4000
+  type: ClusterIP
+  port: 8004
+  targetPort: 8003
 
 resources:
   requests:
-    memory: "512Mi"
-    cpu: "250m"
-  limits:
     memory: "1Gi"
     cpu: "500m"
+  limits:
+    memory: "2Gi"
+    cpu: "1"
 
 autoscaling:
   enabled: true
-  minReplicas: 2
-  maxReplicas: 5
+  minReplicas: 1
+  maxReplicas: 1
   targetCPUUtilizationPercentage: 60
 
 # Istio configs
@@ -31,6 +31,6 @@ istio:
     name: ezaf-gateway
     namespace: istio-system
   hosts:
-    - "graphql.${DOMAIN_NAME}"
+    - "fileservice.${DOMAIN_NAME}"
   tls:
     selfSigned: true

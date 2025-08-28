@@ -1,7 +1,7 @@
-{{- define "RydercupVA-guardrails.name" -}}
-RydercupVA-guardrails
+{{- define "rydercupva-guardrails.name" -}}
+rydercupva-guardrails
 {{- end }}
 
-{{- define "RydercupVA-guardrails.fullname" -}}
-{{ include "RydercupVA-guardrails.name" . }}
+{{- define "rydercupva-guardrails.fullname" -}}
+{{ include "rydercupva-guardrails.name" . }}
 {{- end }}

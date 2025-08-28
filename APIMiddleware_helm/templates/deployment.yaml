@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "RydercupVA-apiservice.fullname" . }}
+  name: {{ include "rydercupva-apiservice.fullname" . }}
   labels:
-    app: {{ include "RydercupVA-apiservice.name" . }}
+    app: {{ include "rydercupva-apiservice.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "RydercupVA-apiservice.name" . }}
+      app: {{ include "rydercupva-apiservice.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "RydercupVA-apiservice.name" . }}
+        app: {{ include "rydercupva-apiservice.name" . }}
     spec:
       containers:
         - name: apiservice

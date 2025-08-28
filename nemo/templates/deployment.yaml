@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "RydercupVA-guardrails.fullname" . }}
+  name: {{ include "rydercupva-guardrails.fullname" . }}
   labels:
-    app: {{ include "RydercupVA-guardrails.name" . }}
+    app: {{ include "rydercupva-guardrails.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "RydercupVA-guardrails.name" . }}
+      app: {{ include "rydercupva-guardrails.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "RydercupVA-guardrails.name" . }}
+        app: {{ include "rydercupva-guardrails.name" . }}
     spec:
       containers:
         - name: nemoguardrails

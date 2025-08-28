@@ -1,7 +1,7 @@
-{{- define "RydercupVA.name" -}}
-RydercupVA
+{{- define "rydercupva.name" -}}
+rydercupva
 {{- end }}
 
-{{- define "RydercupVA.fullname" -}}
-{{ include "RydercupVA.name" . }}
+{{- define "rydercupva.fullname" -}}
+{{ include "rydercupva.name" . }}
 {{- end }}

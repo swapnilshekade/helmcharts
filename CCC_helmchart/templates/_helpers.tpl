@@ -1,7 +1,7 @@
-{{- define "RydercupVA-ccc-ui.name" -}}
-RydercupVA-ccc-ui
+{{- define "rydercupva-ccc-ui.name" -}}
+rydercupva-ccc-ui
 {{- end }}
 
-{{- define "RydercupVA-ccc-ui.fullname" -}}
-{{ include "RydercupVA-ccc-ui.name" . }}
+{{- define "rydercupva-ccc-ui.fullname" -}}
+{{ include "rydercupva-ccc-ui.name" . }}
 {{- end }}

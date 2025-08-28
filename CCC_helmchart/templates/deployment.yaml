@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "RydercupVA-ccc-ui.fullname" . }}
+  name: {{ include "rydercupva-ccc-ui.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ include "RydercupVA-ccc-ui.name" . }}
+    app: {{ include "rydercupva-ccc-ui.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "RydercupVA-ccc-ui.name" . }}
+      app: {{ include "rydercupva-ccc-ui.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "RydercupVA-ccc-ui.name" . }}
+        app: {{ include "rydercupva-ccc-ui.name" . }}
     spec:
       containers:
         - name: rydercup-ccc-ui

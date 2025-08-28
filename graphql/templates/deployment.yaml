@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "RydercupVA-graphql.fullname" . }}
+  name: {{ include "rydercupva-graphql.fullname" . }}
   labels:
-    app: {{ include "RydercupVA-graphql.name" . }}
+    app: {{ include "rydercupva-graphql.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "RydercupVA-graphql.name" . }}
+      app: {{ include "rydercupva-graphql.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "RydercupVA-graphql.name" . }}
+        app: {{ include "rydercupva-graphql.name" . }}
     spec:
       containers:
         - name: graphql-server

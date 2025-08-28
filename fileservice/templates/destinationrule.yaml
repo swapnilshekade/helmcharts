@@ -1,0 +1,11 @@
+{{- if .Values.istio.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: {{ include "fileservice.fullname" . }}-dr
+spec:
+  host: {{ include "fileservice.fullname" . }}-service
+  trafficPolicy:
+    tls:
+      mode: {{ if .Values.istio.tls.selfSigned }}DISABLE{{ else }}ISTIO_MUTUAL{{ end }}
+{{- end }}

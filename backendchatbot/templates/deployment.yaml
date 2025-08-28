@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "RydercupVA-chatbot.fullname" . }}
+  name: {{ include "rydercupva-chatbot.fullname" . }}
   labels:
-    app: {{ include "RydercupVA-chatbot.name" . }}
+    app: {{ include "rydercupva-chatbot.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "RydercupVA-chatbot.name" . }}
+      app: {{ include "rydercupva-chatbot.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "RydercupVA-chatbot.name" . }}
+        app: {{ include "rydercupva-chatbot.name" . }}
     spec:
       containers:
-        - name: RydercupVA-chatbot
+        - name: rydercupva-chatbot
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

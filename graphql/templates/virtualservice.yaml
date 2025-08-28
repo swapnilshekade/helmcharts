@@ -1,0 +1,19 @@
+{{- if .Values.istio.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ include "rydercupva-graphql.fullname" . }}-vs
+spec:
+  hosts:
+    {{- range .Values.istio.hosts }}
+    - {{ . }}
+    {{- end }}
+  gateways:
+    - {{ .Values.istio.gateway.namespace }}/{{ .Values.istio.gateway.name }}
+  http:
+    - route:
+        - destination:
+            host: {{ include "rydercupva-graphql.fullname" . }}-service
+            port:
+              number: {{ .Values.service.port }}
+{{- end }}

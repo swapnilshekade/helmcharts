@@ -1,6 +1,6 @@
 apiVersion: v2
-name: RydercupVA-apiservice
-description: Helm chart for RydercupVA API Service
+name: rydercupva-apiservice
+description: Helm chart for rydercupva API Service
 type: application
 version: 0.1.0
 appVersion: "new13"
