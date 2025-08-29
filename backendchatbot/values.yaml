@@ -18,17 +18,22 @@ resources:
     memory: "2Gi"
     cpu: "1"
 
-pvc:
-  storageClassName: azurefile
-  accessModes:
-    - ReadWriteMany
-  size: 5Gi
-
 autoscaling:
   enabled: true
   minReplicas: 1
   maxReplicas: 1
   targetCPUUtilizationPercentage: 60
 
-volumeMountPath: /chromadb_store
-pvcName: chromadb-store-pvc
+# === Environment Variables (all here) ===
+env:
+  - name: OPENAI_API_KEY
+    value: "eyJhbGciOiJSUzI1NiIsImtpZCI6IjNWWnFtd242VE80WGhvQng3c1N4cHFZaFk2dmY5MVVDd1haZlhjYlJZa1EifQ.eyJhdWQiOlsiYXBpIiwiaXN0aW8tY2EiXSwiZXhwIjoxNzYxNTQyMTcxLCJpYXQiOjE3NTYzNTgxNzEsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiNzA4YzZkODMtMzhiZi00MmNjLWE0Y2EtZjBhMTY3OTYzMjE2Iiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJ1aSIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJpc3ZjLWVwLTE3NTYzNTgxNzExMjAiLCJ1aWQiOiI3MTQ4NDljNy0yMTZiLTQ5YzYtYmZhZS0wOTIwMzE4ODNmNjYifX0sIm5iZiI6MTc1NjM1ODE3MSwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OnVpOmlzdmMtZXAtMTc1NjM1ODE3MTEyMCJ9.Lq-zrz2NvkEa_ByCqxm7fhKjQnutwrPmsDBpDO7Z8bU3JKgclVJmitTcixnB9XUrQbSyokFfs9CUvZKVY9DP7-a0gYIXvxeh5z-SYomHfjiFmAEWABw7OdUfmPT1DdsP_WKx160qSu7sJR6Srk7tS9XGfJd6x9-zSCYgL6bve1r128Tfujwz-4QWLpiitykGBvHGl2I7ob4fdp835eK-aJdfej1WCFWqcJ7__bjBj_0z3_LJUyewaN8rXNYNiFNzQw3DqkVyOBv3SBJRM4pPcQjm_EPXepLMkw_8xDrM3kCI9POqCNYwiYjbzAbFyjKvw0Y8D6jfRJ-_FCdeiS-3kQ"
+
+  - name: OPENAI_API_BASE
+    value: "https://llama-3-1-8b-instruct-predictor-jackson-johnsto-37765631.pcai3aie.atlpss.hp.net"
+
+  - name: MODEL_NAME
+    value: "llama-3.1-8b-instruct"
+
+  - name: MONGO_URI
+    value: "mongodb://rydercup-mongodb:27017/chatbot"
